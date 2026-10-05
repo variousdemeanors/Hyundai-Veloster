@@ -1,0 +1,65 @@
+{
+  "vehicle": {
+    "model_year": 2014,
+    "model": "Hyundai Veloster Turbo",
+    "engine": "1.6T G4FJ",
+    "transmission": "manual"
+  },
+  "status": "Evidence for maintainer review; not a production signal definition",
+  "command": {
+    "request_id": "7E0",
+    "response_id": "7E8",
+    "request_hex": "2101",
+    "positive_response_prefix_hex": "6101"
+  },
+  "proposed_decode": {
+    "name": "Engine speed",
+    "payload_convention": "Zero-based bytes after the 61 01 positive-response header",
+    "byte_offset": 7,
+    "byte_length": 2,
+    "byte_order": "little",
+    "signed": false,
+    "divisor": 4,
+    "unit": "rpm"
+  },
+  "reference": {
+    "can_id": "316",
+    "byte_offset": 2,
+    "byte_length": 2,
+    "byte_order": "little",
+    "divisor": 4,
+    "matching": "Nearest broadcast to the diagnostic first-frame timestamp",
+    "independence_note": "Broadcast comparison, not a simultaneous standard 01 0C response"
+  },
+  "source": {
+    "capture_date": "2025-12-08",
+    "description": "Archived real-vehicle Torque diagnostic session",
+    "extraction": "Complete, sequence-checked ISO-TP 61 01 responses, each preceded by a 7E0 request within one second",
+    "redaction": "Only the two RPM bytes from each response and reference are included. Full payloads, absolute timestamps, identifiers and unrelated traffic are omitted.",
+    "limitations": "Single vehicle and session; observed diagnostic RPM spans 2923 to 2969. Calibration state and applicability to other years, engines or trims are not established.",
+    "test_fixture_note": "These are extracted observed fields, not complete ECU-response fixtures."
+  },
+  "samples": [
+    {"sample": 1, "payload_bytes_7_8_hex": "AC2D", "decoded_rpm": 2923, "broadcast_rpm_bytes_hex": "AC2D", "broadcast_rpm": 2923, "broadcast_delta_ms": 3.111},
+    {"sample": 2, "payload_bytes_7_8_hex": "122E", "decoded_rpm": 2948.5, "broadcast_rpm_bytes_hex": "122E", "broadcast_rpm": 2948.5, "broadcast_delta_ms": 2.301},
+    {"sample": 3, "payload_bytes_7_8_hex": "562E", "decoded_rpm": 2965.5, "broadcast_rpm_bytes_hex": "502E", "broadcast_rpm": 2964, "broadcast_delta_ms": 2.551},
+    {"sample": 4, "payload_bytes_7_8_hex": "642E", "decoded_rpm": 2969, "broadcast_rpm_bytes_hex": "642E", "broadcast_rpm": 2969, "broadcast_delta_ms": 2.335},
+    {"sample": 5, "payload_bytes_7_8_hex": "402E", "decoded_rpm": 2960, "broadcast_rpm_bytes_hex": "402E", "broadcast_rpm": 2960, "broadcast_delta_ms": 3.027},
+    {"sample": 6, "payload_bytes_7_8_hex": "442E", "decoded_rpm": 2961, "broadcast_rpm_bytes_hex": "442E", "broadcast_rpm": 2961, "broadcast_delta_ms": 2.432},
+    {"sample": 7, "payload_bytes_7_8_hex": "2A2E", "decoded_rpm": 2954.5, "broadcast_rpm_bytes_hex": "2A2E", "broadcast_rpm": 2954.5, "broadcast_delta_ms": 2.555},
+    {"sample": 8, "payload_bytes_7_8_hex": "1C2E", "decoded_rpm": 2951, "broadcast_rpm_bytes_hex": "1C2E", "broadcast_rpm": 2951, "broadcast_delta_ms": 2.672},
+    {"sample": 9, "payload_bytes_7_8_hex": "1E2E", "decoded_rpm": 2951.5, "broadcast_rpm_bytes_hex": "1E2E", "broadcast_rpm": 2951.5, "broadcast_delta_ms": 2.785},
+    {"sample": 10, "payload_bytes_7_8_hex": "F62D", "decoded_rpm": 2941.5, "broadcast_rpm_bytes_hex": "002E", "broadcast_rpm": 2944, "broadcast_delta_ms": 3.098},
+    {"sample": 11, "payload_bytes_7_8_hex": "1A2E", "decoded_rpm": 2950.5, "broadcast_rpm_bytes_hex": "1A2E", "broadcast_rpm": 2950.5, "broadcast_delta_ms": 5.575},
+    {"sample": 12, "payload_bytes_7_8_hex": "1A2E", "decoded_rpm": 2950.5, "broadcast_rpm_bytes_hex": "1A2E", "broadcast_rpm": 2950.5, "broadcast_delta_ms": 2.648},
+    {"sample": 13, "payload_bytes_7_8_hex": "202E", "decoded_rpm": 2952, "broadcast_rpm_bytes_hex": "202E", "broadcast_rpm": 2952, "broadcast_delta_ms": 2.498},
+    {"sample": 14, "payload_bytes_7_8_hex": "162E", "decoded_rpm": 2949.5, "broadcast_rpm_bytes_hex": "0E2E", "broadcast_rpm": 2947.5, "broadcast_delta_ms": 5.248},
+    {"sample": 15, "payload_bytes_7_8_hex": "402E", "decoded_rpm": 2960, "broadcast_rpm_bytes_hex": "402E", "broadcast_rpm": 2960, "broadcast_delta_ms": 3.317}
+  ],
+  "summary": {
+    "sample_count": 15,
+    "exact_matches": 12,
+    "median_absolute_error_rpm": 0,
+    "maximum_absolute_error_rpm": 2.5
+  }
+}
